@@ -43,6 +43,22 @@ public class Main {
 				Spielbrett.setSpielbrettPunkt(eingabefarbe, i, j);		
 			}
 		weitergabeSpieler("Spieler1");
+		for(int j=1; j<5; j++){
+			//Anzeige.gibAus("Bitte wähle die"+j+". Farbe der Kontrollausgabe. weiss für Farbe und Ort richtig, schwarz für Farbe richtig und leer für nichts.");
+				String kontrollfarbe = w;
+				while(Spieler1.setEingabeKontrolle(kontrollfarbe)!= true){kontrollfarbe = Ausgabe.getEingabe();}
+				Spielbrett.setKontrollbrettPunkt(kontrollfarbe, i, j);		
+			}
+		if(Spielbrett.getKontrollbrettPunkt(i, 1)=="weiss" ||Spielbrett.getKontrollbrettPunkt(i, 2)=="weiss" ||Spielbrett.getKontrollbrettPunkt(i, 3)=="weiss" ||Spielbrett.getKontrollbrettPunkt(i, 4)=="weiss"){
+			richtigGeraten = true;
+		}
+		weitergabeSpieler("Spieler2");
+	}
+	
+	//Diese Methode gibt den Sieger aus
+	public void siegerausgabe(){
+		if(richtigGeraten == true){Anzeige.gibAus("Spieler 2 hat gewonnen.");}
+		else{Anzeige.gibAus("Spieler 1 hat gewonnen.");}
 	}
 	
 	//noch etwas provisorisch, das mit dem Enter muss noch überarbeitet werden
